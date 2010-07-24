@@ -25,6 +25,7 @@ namespace TDBadgedCellSharp
 			contents.Add (new Rss { Title = "High Caffine Content", Detail = "Steven Troughton Smith", Badge = "2" });
 			contents.Add (new Rss { Title = "Smoking Apples", Detail = "Blog about Apple Software...", Badge = "145" });
 			contents.Add (new Rss { Title = "Daring Fireball", Detail = "The musings of John Gruber", Badge = "0" });
+			contents.Add (new Rss { Title = "tmdvs.me", Detail = "Long detail text to test update by tonymillion on github", Badge = "2345" });
 
 			// Build a tableview
 			tableViewController = new UITableViewController ();

@@ -165,6 +165,16 @@ namespace TDBadgedCellSharp
 						, this.TextLabel.Frame.Size.Height);
 				}
 				
+				// http://github.com/tmdvs/TDBadgedCell/commit/4c3c09e0adef7d90b6dbba82b5f35b91f16e8dd2
+				if ((DetailTextLabel.Frame.X + DetailTextLabel.Frame.Size.Width) >= badgeFrame.X)
+				{
+					float badgeWidth = Convert.ToSingle(this.DetailTextLabel.Frame.Size.Width - badgeFrame.Size.Width - 10);
+					DetailTextLabel.Frame = new RectangleF(this.DetailTextLabel.Frame.X
+						, this.DetailTextLabel.Frame.Y
+						, badgeWidth
+						, this.DetailTextLabel.Frame.Size.Height);
+				}
+
 				//set badge hightlighed colours or use defaults
 				if (this.BadgeColorHighlighted != null)
 					Badge.BadgeColorHighlighted = this.BadgeColorHighlighted;
