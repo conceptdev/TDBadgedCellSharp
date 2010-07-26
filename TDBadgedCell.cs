@@ -108,11 +108,12 @@ namespace TDBadgedCellSharp
 		{
 			Badge = new TDBadgeView(RectangleF.Empty);
 			Badge.Parent = this;
-			
-			//redraw cells in accordance to accessory
-			float version = float.Parse(UIDevice.CurrentDevice.SystemVersion);
 
-			if (version <= 3.0)
+			//redraw cells in accordance to accessory
+			var v = new Version(UIDevice.CurrentDevice.SystemVersion);
+			int version = v.Major; //float.Parse(UIDevice.CurrentDevice.SystemVersion);
+
+			if (version <= 3)
 				this.AddSubview(this.Badge);
 			else
 				this.ContentView.AddSubview(this.Badge);
@@ -132,11 +133,12 @@ namespace TDBadgedCellSharp
 				NSString ns = new NSString(BadgeNumber.ToString());
 				SizeF badgeSize = ns.StringSize(UIFont.BoldSystemFontOfSize(14));
 	
-				float version = float.Parse(UIDevice.CurrentDevice.SystemVersion);
+				var v = new Version(UIDevice.CurrentDevice.SystemVersion);
+				int version = v.Major; //float.Parse(UIDevice.CurrentDevice.SystemVersion);
 	
 				RectangleF badgeFrame;
 
-				if (version <= 3.0)
+				if (version <= 3)
 				{
 					badgeFrame = new RectangleF(this.ContentView.Frame.Size.Width - (badgeSize.Width+16) - 10 // not sure why this wasn't -10 in the objective-c version...?
 						, Convert.ToSingle(Math.Round((this.ContentView.Frame.Size.Height - 18) /2))
